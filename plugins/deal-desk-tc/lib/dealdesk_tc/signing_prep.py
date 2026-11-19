@@ -17,7 +17,70 @@ def _digits(s):
     return re.sub(r"\D", "", s or "")
 
 
-def signer_check(signers, member):
+# Common mail providers for the typo-domain check. Short names (aol, msn, me, live, cox, att) are
+# left out of the fuzzy match: one edit away from them is too often a real, different domain.
+PROVIDERS = ("gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com",
+             "protonmail.com", "comcast.net", "bellsouth.net", "sbcglobal.net", "verizon.net")
+BAD_TLDS = {"con": "com", "cmo": "com", "ocm": "com", "vom": "com", "cim": "com", "comm": "com",
+            "coom": "com", "xom": "com", "nett": "net", "ner": "net", "ogr": "org", "orgg": "org"}
+
+
+def dl_distance(a, b):
+    """Damerau-Levenshtein (optimal string alignment): a swap of two letters costs 1."""
+    d = [[0] * (len(b) + 1) for _ in range(len(a) + 1)]
+    for i in range(len(a) + 1):
+        d[i][0] = i
+    for j in range(len(b) + 1):
+        d[0][j] = j
+    for i in range(1, len(a) + 1):
+        for j in range(1, len(b) + 1):
+            c = 0 if a[i - 1] == b[j - 1] else 1
+            d[i][j] = min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + c)
+            if i > 1 and j > 1 and a[i - 1] == b[j - 2] and a[i - 2] == b[j - 1]:
+                d[i][j] = min(d[i][j], d[i - 2][j - 2] + 1)
+    return d[-1][-1]
+
+
+def typo_domain(email):
+    """Suggested domain when the email's domain looks like a typo, else None. Never rewrites it."""
+    dom = _email(email).rpartition("@")[2]
+    if not dom or dom in PROVIDERS:
+        return None
+    for prov in PROVIDERS:
+        if dl_distance(dom, prov) == 1:
+            return prov
+    head, _, tld = dom.rpartition(".")
+    if head and tld in BAD_TLDS:
+        return head + "." + BAD_TLDS[tld]
+    return None
+
+
+def typo_flag(suggested):
+    return "Possible typo: did you mean %s? Please verify with the client" % suggested
+
+
+def apply_email_confirmations(signers, confirmations):
+    """confirmations = {signer name: {"action": "confirm"|"correct", "source": "agent_chat",
+    "email": <the address confirmed, or the corrected one>}}. Only the agent's own chat counts;
+    an email or document does not. Confirm keeps the spelling. Correct swaps in the agent's address.
+    Returns (signers, confirmed) where confirmed = {signer name: the confirmed address}."""
+    out, confirmed = [], {}
+    for s in signers:
+        c = (confirmations or {}).get(s["name"])
+        if not isinstance(c, dict) or c.get("source") != "agent_chat" or not _email(c.get("email")):
+            out.append(s)
+            continue
+        if c.get("action") == "correct":
+            out.append(dict(s, email=c["email"].strip()))
+        elif c.get("action") == "confirm" and _email(c["email"]) == _email(s.get("email")):
+            out.append(s)                       # original spelling stays
+            confirmed[s["name"]] = _email(s["email"])
+        else:
+            out.append(s)
+    return out, confirmed
+
+
+def signer_check(signers, member, confirmed=None):
     """Stop on two different signers sharing an email or phone, a signer email
     equal to the member's own when they are not that signer, or a bad email."""
     problems = []
@@ -27,6 +90,11 @@ def signer_check(signers, member):
         if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", e):
             problems.append({"type": "bad_email", "signer": s["name"], "email": s.get("email")})
             continue
+        sug = typo_domain(e)
+        if sug and (confirmed or {}).get(s["name"]) != e:
+            problems.append({"type": "possible_typo_domain", "signer": s["name"],
+                             "email": s.get("email"), "suggested_domain": sug,
+                             "flag": typo_flag(sug)})
         by_email.setdefault(e, set()).add(s["name"])
         if _digits(s.get("phone")):
             by_phone.setdefault(_digits(s["phone"]), set()).add(s["name"])
@@ -96,14 +164,15 @@ def pick_layouts(docs, settings, choices):
 
 
 def prep(client, gate, settings, address, docs, requested_signers, review_payload,
-         layout_choices=None, edit_layout=None, plan=None):
+         layout_choices=None, edit_layout=None, plan=None, email_confirmations=None):
     """plan = a template signing plan (tc-templates auto-run). It saves the UNSENT draft before the
     review yes (a draft is not a send); every other gate still applies. No plan = the original flow."""
     member = {"name": settings.get("member_name"), "email": settings.get("member_email")}
     signers, ask = resolve_signers(client, requested_signers)
     if ask:
         return dict(ask, status="ask")
-    check = signer_check(signers, member)
+    signers, confirmed = apply_email_confirmations(signers, email_confirmations)
+    check = signer_check(signers, member, confirmed)
     if check["stop"]:
         return {"status": "stopped", "stop": True, "reason": "signer_check",
                 "signer_check": check, "draft_saved": False}

@@ -266,7 +266,8 @@ class Session:
         if name == "signing_prep":
             out = signing_prep.prep(c, self.gate, self.settings, a["address"], a["docs"],
                                     a["signers"], a.get("payload", self.last_payload),
-                                    a.get("layout_choices"), a.get("edit_layout"))
+                                    a.get("layout_choices"), a.get("edit_layout"),
+                                    email_confirmations=a.get("email_confirmations"))
             if out.get("reason") == "no_approval_for_this_version":
                 out["proposal"] = self.gate.propose("form_review", a.get("payload", self.last_payload))
             if out.get("layout_proposal"):

@@ -1,5 +1,13 @@
 # Changelog: Deal Desk TC
 
+## 0.2.2 (Nov 19 2026, pending review)
+
+Changed (Caleb approved Nov 19 2026)
+- Buyer offers stop and list every missing term before filling. Still required: price, financing type, deposit amount, act of sale. Now also required when they apply: loan amount, interest rate, financing application days (financed only), deposit holder (only when a deposit exists), and offer expiration date and time (always; a date with no time counts as missing). `fill_form` returns `status: "ask"`, `asks` (every missing key), a plain-list `message`, and fills nothing. Counter, addendum, amendment and extension required sets are unchanged.
+- Signer check adds a typo-domain warning: Damerau-Levenshtein distance 1 from a common provider (a swap counts as 1) or a bad TLD (`.con`, `.cmo`). Flag text: `Possible typo: did you mean gmail.com? Please verify with the client`. The address is never auto-corrected. The flag blocks signing prep until the agent confirms the address as-is or corrects it, through `email_confirmations` (source `agent_chat`). Malformed-address and collision checks are unchanged.
+- Offer Expires is now typed into the form when given (template prefill too).
+- Scenarios: new DD06-01 to DD06-40 (27 tests); the Pelican offer fixture carries demo values for the new terms; F26, TP29, TP32 and TP40 expectations updated. Tests 536/536.
+
 ## 0.2.1 (Nov 16 2026, pending review)
 
 Changed (Caleb's decision, Nov 16 2026: compliance uploads are automatic, no yes)

@@ -19,6 +19,9 @@ if not PACK_PATH.exists():
 REQUIRED = {"offer": ["price", "financing", "deposit_amount", "act_of_sale"],
             "counter": ["changes"], "addendum": ["added_terms"],
             "amendment": ["changes"], "extension": ["new_date"]}
+# Offer terms asked only when they apply (see offer_asks). Order is the order of the plain list.
+OFFER_CONDITIONAL = ["loan_amount", "interest_rate", "financing_application_days",
+                     "deposit_holder", "offer_expiration"]
 SMALL_DEFAULTS = {"possession": "At act of sale", "home_warranty": "None"}
 FIELD_MAP = [("price", "Purchase Price"), ("deposit_amount", "Deposit"),
              ("act_of_sale", "Act of Sale Date"), ("financing", "Financing"),
@@ -49,8 +52,56 @@ DISCLOSURES = {"agency": "Agency Disclosure Informational Pamphlet (LREC)",
                "flood": "Flood disclosure"}
 
 
+ASK_LABELS = {"price": "Purchase price", "financing": "Financing type",
+              "deposit_amount": "Deposit amount", "act_of_sale": "Act of sale date",
+              "loan_amount": "Loan amount", "interest_rate": "Interest rate",
+              "financing_application_days": "Financing application days",
+              "deposit_holder": "Deposit holder",
+              "offer_expiration": "Offer expiration date and time"}
+
+
 def load_pack():
     return json.loads(PACK_PATH.read_text(encoding="utf-8"))
+
+
+def _blank(v):
+    return v is None or v == [] or (isinstance(v, str) and not v.strip())
+
+
+_TIME_OF_DAY = re.compile(r"\b\d{1,2}:\d{2}\b|\b\d{1,2}\s*(?:a\.?m\.?|p\.?m\.?)(?![a-z])|"
+                          r"\b(?:noon|midnight)\b", re.I)
+
+
+def has_time_of_day(v):
+    """An offer expiration needs a date AND a time. A bare date is not enough."""
+    if hasattr(v, "hour"):                       # a datetime object carries a time
+        return True
+    return bool(_TIME_OF_DAY.search(str(v)))
+
+
+def _has_deposit(v):
+    if _blank(v):
+        return False
+    try:
+        return float(re.sub(r"[^0-9.]", "", str(v)) or 0) > 0
+    except ValueError:
+        return True
+
+
+def offer_asks(merged):
+    """Every missing offer term, in one list. Base fields always; the rest only when they apply."""
+    asks = [k for k in REQUIRED["offer"] if _blank(merged.get(k))]
+    fin = merged.get("financing")
+    financed = not _blank(fin) and str(fin).strip().lower() != "cash"
+    if financed:
+        asks += [k for k in ("loan_amount", "interest_rate", "financing_application_days")
+                 if _blank(merged.get(k))]
+    if _has_deposit(merged.get("deposit_amount")) and _blank(merged.get("deposit_holder")):
+        asks.append("deposit_holder")
+    exp = merged.get("offer_expiration")
+    if _blank(exp) or not has_time_of_day(exp):
+        asks.append("offer_expiration")
+    return asks
 
 
 def term_sheet(kind, terms, found=None):
@@ -60,7 +111,10 @@ def term_sheet(kind, terms, found=None):
     """
     merged = dict(found or {})
     merged.update(terms)
-    asks = [k for k in REQUIRED[kind] if merged.get(k) in (None, "", [])]
+    if kind == "offer":
+        asks = offer_asks(merged)
+    else:
+        asks = [k for k in REQUIRED[kind] if merged.get(k) in (None, "", [])]
     defaults = {k: v for k, v in SMALL_DEFAULTS.items() if k not in merged}
     full = dict(defaults)
     full.update(merged)
@@ -284,7 +338,11 @@ def fill_form(client, gate, settings, kind, terms, context=None, found=None,
     facts = facts or {}
     sheet = term_sheet(kind, terms, found)
     if sheet["asks"]:
-        return {"status": "ask", "asks": sheet["asks"], "term_sheet": sheet}
+        # Nothing is filled. The agent gets a plain list of what is still needed; never guess a value.
+        return {"status": "ask", "asks": sheet["asks"], "filled": {},
+                "message": "Still needed before I fill anything:\n" +
+                           "\n".join("- " + ASK_LABELS.get(k, k) for k in sheet["asks"]),
+                "term_sheet": sheet}
     choice = choose_form(kind, pack, context, named)
     if choice.get("ask") or choice.get("stop"):
         return dict(choice, status="stopped", term_sheet=sheet)
