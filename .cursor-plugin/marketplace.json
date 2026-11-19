@@ -1,0 +1,21 @@
+{
+  "name": "deal-desk",
+  "owner": {
+    "name": "Caleb Jackson"
+  },
+  "metadata": {
+    "description": "Deal Desk plugins for real estate agents: Deadline Tracker and TC."
+  },
+  "plugins": [
+    {
+      "name": "deal-desk-deadline-tracker",
+      "source": "./plugins/deal-desk-deadline-tracker",
+      "description": "Reads contract papers, builds a deadline table with sources, proposes calendar events, and shows amendment changes before any date moves. Never sends, signs, or invites; every write waits for your yes."
+    },
+    {
+      "name": "deal-desk-tc",
+      "source": "./plugins/deal-desk-tc",
+      "description": "Transaction coordination in your own Transact: opens files, fills and checks forms, preps signing drafts, and files compliance. Never sends, signs, or submits without your yes."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "deal-desk-shared-core",
+  "version": "0.1.1",
+  "skills": [
+    "member-setup",
+    "review-gate",
+    "market-louisiana",
+    "crm-csv-import",
+    "client-enrichment",
+    "flexmls-read",
+    "deal-match",
+    "connectors"
+  ],
+  "hard_rules": "skills/HARD-RULES.md",
+  "brand": "Caleb Jackson",
+  "status": "in-progress",
+  "lib": "lib/dealdesk_core",
+  "market_packs": [
+    "skills/market-louisiana/market-pack.json"
+  ],
+  "tests": {
+    "scenarios": "tests/scenarios",
+    "fixtures": "tests/fixtures"
+  }
+}

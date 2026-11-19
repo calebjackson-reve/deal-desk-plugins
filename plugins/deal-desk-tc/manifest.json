@@ -1,0 +1,26 @@
+{
+  "name": "deal-desk-tc",
+  "version": "0.2.1",
+  "skills": [
+    "tc-transact-navigator",
+    "tc-open-deal",
+    "tc-fill-form",
+    "tc-signing-prep",
+    "tc-contract-to-close",
+    "tc-compliance-file",
+    "tc-client-update",
+    "tc-buyer-offer-packet",
+    "tc-onboarding-pass",
+    "tc-templates"
+  ],
+  "brand": "Caleb Jackson",
+  "status": "built-pending-review",
+  "min_shared_core": "0.1.1",
+  "max_tested_shared_core": "0.1.x",
+  "lib": "lib/dealdesk_tc",
+  "tests": {
+    "scenarios": "tests/scenarios",
+    "fixtures": "tests/fixtures"
+  },
+  "templates": "templates/louisiana-baton-rouge"
+}

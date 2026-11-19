@@ -1,0 +1,173 @@
+{
+ "note": "Document -> Transact Compliance tab checklist item. Row names are hints only; the live row names are read from the tab and mapped by name. Upload into the member's own Compliance tab is automatic (own file, own deal, Compliance items only, never over a filled item, executed copies only). Submit stays gated: its own yes, one per try.",
+ "stages": {
+  "under_contract": [
+   {
+    "doc": "Residential Agreement to Buy or Sell (LREC)",
+    "row_hints": [
+     "Agreement",
+     "Purchase Agreement"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Agency Disclosure Informational Pamphlet (LREC)",
+    "row_hints": [
+     "Disclosures",
+     "Agency Disclosure"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Property Disclosure Document + buyer receipt",
+    "row_hints": [
+     "Disclosures",
+     "Property Disclosure"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Lead-Based Paint Disclosure (pre-1978)",
+    "row_hints": [
+     "Disclosures",
+     "Lead-Based Paint"
+    ],
+    "verified": false,
+    "when": {
+     "fact": "year_built",
+     "lt": 1978
+    }
+   },
+   {
+    "doc": "Flood disclosure",
+    "row_hints": [
+     "Disclosures",
+     "Flood"
+    ],
+    "verified": false,
+    "when": {
+     "fact": "flood_zone",
+     "truthy": true
+    }
+   },
+   {
+    "doc": "Deposit Addendum + receipt",
+    "row_hints": [
+     "Deposit",
+     "Earnest Money"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Buyer representation agreement (Louisiana REALTORS)",
+    "row_hints": [
+     "Representation",
+     "Buyer Agreement"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "FHA or VA amendatory clause",
+    "row_hints": [
+     "Addenda",
+     "Addendum"
+    ],
+    "verified": false,
+    "when": {
+     "fact": "loan_type",
+     "in": [
+      "FHA",
+      "VA"
+     ]
+    }
+   }
+  ],
+  "inspection_response": [
+   {
+    "doc": "Due Diligence and Inspection Response (GBRAR)",
+    "row_hints": [
+     "Inspection",
+     "Due Diligence"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Amendment to Agreement to Buy or Sell",
+    "row_hints": [
+     "Addenda",
+     "Amendment"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Repair receipts",
+    "row_hints": [
+     "Repairs",
+     "Repair Receipts"
+    ],
+    "verified": false
+   }
+  ],
+  "appraisal_lending": [
+   {
+    "doc": "Appraisal + response",
+    "row_hints": [
+     "Appraisal"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Loan application proof",
+    "row_hints": [
+     "Loan",
+     "Lender",
+     "Pre-Approval"
+    ],
+    "verified": false
+   }
+  ],
+  "closing": [
+   {
+    "doc": "Walkthrough",
+    "row_hints": [
+     "Walkthrough"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Closing Disclosure / settlement statement",
+    "row_hints": [
+     "Closing Disclosure",
+     "Settlement"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Extension of Agreement to Buy or Sell",
+    "row_hints": [
+     "Addenda",
+     "Extension"
+    ],
+    "verified": false
+   }
+  ],
+  "post_closing": [
+   {
+    "doc": "Recorded Act of Sale",
+    "row_hints": [
+     "Act of Sale",
+     "Recorded"
+    ],
+    "verified": false
+   },
+   {
+    "doc": "Closing Disclosure / settlement statement",
+    "row_hints": [
+     "Closing Disclosure",
+     "Settlement"
+    ],
+    "verified": false
+   }
+  ]
+ }
+}

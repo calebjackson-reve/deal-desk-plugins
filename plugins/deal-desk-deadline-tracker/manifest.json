@@ -1,0 +1,23 @@
+{
+  "name": "deal-desk-deadline-tracker",
+  "version": "0.1.0",
+  "skills": [
+    "tracker-ingest",
+    "tracker-extract",
+    "tracker-deadline-table",
+    "tracker-calendar",
+    "tracker-amendment-diff",
+    "tracker-files",
+    "tracker-digest",
+    "tracker-onboarding-pass"
+  ],
+  "brand": "Caleb Jackson",
+  "status": "built-pending-review",
+  "min_shared_core": "0.1.0",
+  "max_tested_shared_core": "0.1.x",
+  "lib": "lib/dealdesk_tracker",
+  "tests": {
+    "scenarios": "tests/scenarios",
+    "fixtures": "tests/fixtures"
+  }
+}

@@ -1,0 +1,290 @@
+{
+ "market": "Louisiana / Baton Rouge",
+ "version": "1.0.0",
+ "note": "Default packet templates. Read-only shared data. Codes are 'unverified' except LREC0059 (Residential Agreement to Buy or Sell, Rev. 01/2026, live-verified). target_folder_hint is a hint only: the live folder name is read from the Paperwork page, never assumed.",
+ "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+ "packets": {
+  "buyer-offer": {
+   "name": "Buyer offer packet",
+   "deal_types": [
+    "offer",
+    "buyer offer",
+    "buyer-offer"
+   ],
+   "signing_order": [
+    "buyers",
+    "sellers"
+   ],
+   "compliance_stage": "under_contract",
+   "forms": [
+    {
+     "code": "unverified",
+     "name": "Agency Disclosure Informational Pamphlet (LREC)",
+     "library_search": "Agency Disclosure Informational Pamphlet (LREC)",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "required",
+     "verified": false
+    },
+    {
+     "code": "LREC0059",
+     "name": "Residential Agreement to Buy or Sell (LREC)",
+     "library_search": "Residential Agreement to Buy or Sell (LREC)",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "required",
+     "verified": true
+    },
+    {
+     "code": "unverified",
+     "name": "Property Disclosure Document + buyer receipt",
+     "library_search": "Property Disclosure Document + buyer receipt",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Buyer Documents",
+     "requirement": "required",
+     "verified": false
+    },
+    {
+     "code": "unverified",
+     "name": "Lead-Based Paint Disclosure (pre-1978)",
+     "library_search": "Lead-Based Paint Disclosure (pre-1978)",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "year_built",
+      "lt": 1978
+     }
+    },
+    {
+     "code": "unverified",
+     "name": "Flood disclosure",
+     "library_search": "Flood disclosure",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "flood_zone",
+      "truthy": true
+     }
+    },
+    {
+     "code": "unverified",
+     "name": "FHA or VA amendatory clause",
+     "library_search": "FHA or VA amendatory clause",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "loan_type",
+      "in": [
+       "FHA",
+       "VA"
+      ]
+     }
+    }
+   ],
+   "id": "buyer-offer"
+  },
+  "seller-counter": {
+   "name": "Seller counter packet",
+   "deal_types": [
+    "seller counter",
+    "seller-counter"
+   ],
+   "signing_order": [
+    "sellers",
+    "buyers"
+   ],
+   "compliance_stage": "under_contract",
+   "forms": [
+    {
+     "code": "unverified",
+     "name": "Residential Counter Offer",
+     "library_search": "Residential Counter Offer",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "required",
+     "verified": false
+    }
+   ],
+   "id": "seller-counter"
+  },
+  "buyer-counter": {
+   "name": "Buyer counter packet",
+   "deal_types": [
+    "buyer counter",
+    "buyer-counter"
+   ],
+   "signing_order": [
+    "buyers",
+    "sellers"
+   ],
+   "compliance_stage": "under_contract",
+   "forms": [
+    {
+     "code": "unverified",
+     "name": "Residential Counter Offer",
+     "library_search": "Residential Counter Offer",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "required",
+     "verified": false
+    }
+   ],
+   "id": "buyer-counter"
+  },
+  "amendment-repair-request": {
+   "name": "Amendment / repair request packet",
+   "deal_types": [
+    "amendment",
+    "repair request",
+    "repair",
+    "amendment-repair-request"
+   ],
+   "signing_order": [
+    "buyers",
+    "sellers"
+   ],
+   "compliance_stage": "inspection_response",
+   "forms": [
+    {
+     "code": "unverified",
+     "name": "Amendment to Agreement to Buy or Sell",
+     "library_search": "Amendment to Agreement to Buy or Sell",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "required",
+     "verified": false
+    },
+    {
+     "code": "unverified",
+     "name": "Due Diligence and Inspection Response (GBRAR)",
+     "library_search": "Due Diligence and Inspection Response (GBRAR)",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Buyer Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "inspection_done",
+      "truthy": true
+     }
+    }
+   ],
+   "id": "amendment-repair-request"
+  },
+  "extension": {
+   "name": "Extension packet",
+   "deal_types": [
+    "extension",
+    "extend"
+   ],
+   "signing_order": [
+    "buyers",
+    "sellers"
+   ],
+   "compliance_stage": "closing",
+   "forms": [
+    {
+     "code": "unverified",
+     "name": "Extension of Offer",
+     "library_search": "Extension of Offer",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "accepted",
+      "eq": false
+     }
+    },
+    {
+     "code": "unverified",
+     "name": "Extension of Agreement to Buy or Sell",
+     "library_search": "Extension of Agreement to Buy or Sell",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Offer Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "accepted",
+      "eq": true
+     }
+    }
+   ],
+   "id": "extension"
+  },
+  "listing-packet": {
+   "name": "Listing packet",
+   "deal_types": [
+    "listing",
+    "listing packet",
+    "listing-packet"
+   ],
+   "signing_order": [
+    "sellers",
+    "listing_agent"
+   ],
+   "compliance_stage": "under_contract",
+   "forms": [
+    {
+     "code": "unverified",
+     "name": "Listing agreement",
+     "library_search": "Listing agreement",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Listing Documents",
+     "requirement": "required",
+     "verified": false
+    },
+    {
+     "code": "unverified",
+     "name": "Agency Disclosure Informational Pamphlet (LREC)",
+     "library_search": "Agency Disclosure Informational Pamphlet (LREC)",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Listing Documents",
+     "requirement": "required",
+     "verified": false
+    },
+    {
+     "code": "unverified",
+     "name": "Property Disclosure Document + buyer receipt",
+     "library_search": "Property Disclosure Document + buyer receipt",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Listing Documents",
+     "requirement": "required",
+     "verified": false
+    },
+    {
+     "code": "unverified",
+     "name": "Lead-Based Paint Disclosure (pre-1978)",
+     "library_search": "Lead-Based Paint Disclosure (pre-1978)",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Listing Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "year_built",
+      "lt": 1978
+     }
+    },
+    {
+     "code": "unverified",
+     "name": "Flood disclosure",
+     "library_search": "Flood disclosure",
+     "pick_rule": "newest footer revision (preview each; equal -> first and say so)",
+     "target_folder_hint": "Listing Documents",
+     "requirement": "conditional",
+     "verified": false,
+     "when": {
+      "fact": "flood_zone",
+      "truthy": true
+     }
+    }
+   ],
+   "id": "listing-packet"
+  }
+ }
+}

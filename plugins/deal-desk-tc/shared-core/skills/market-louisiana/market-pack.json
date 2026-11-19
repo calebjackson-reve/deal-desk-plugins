@@ -1,0 +1,260 @@
+{
+  "market": "Louisiana / Baton Rouge",
+  "version": "0.1.0",
+  "time_zone": "America/Chicago",
+  "note": "Observed GBRAR / LREC practice, not law. Every number is read from the signed form. Confirm office and title closures with the broker. All entries editable.",
+  "holidays": [
+    {
+      "date": "2026-11-11",
+      "name": "Veterans Day"
+    },
+    {
+      "date": "2026-11-26",
+      "name": "Thanksgiving"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Christmas"
+    },
+    {
+      "date": "2027-01-01",
+      "name": "New Year's Day"
+    },
+    {
+      "date": "2027-01-18",
+      "name": "Martin Luther King Jr. Day"
+    },
+    {
+      "date": "2027-02-09",
+      "name": "Mardi Gras (verify)"
+    },
+    {
+      "date": "2027-03-26",
+      "name": "Good Friday (verify)"
+    },
+    {
+      "date": "2027-05-31",
+      "name": "Memorial Day"
+    },
+    {
+      "date": "2027-06-18",
+      "name": "Juneteenth (observed)"
+    },
+    {
+      "date": "2027-07-05",
+      "name": "Independence Day (observed)"
+    },
+    {
+      "date": "2027-09-06",
+      "name": "Labor Day"
+    }
+  ],
+  "forms": [
+    {
+      "name": "Agency Disclosure Informational Pamphlet (LREC)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Buyer representation agreement (Louisiana REALTORS)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Listing agreement",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Residential Agreement to Buy or Sell (LREC)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Residential Counter Offer",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Property Disclosure Document + buyer receipt",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Dual Agency Disclosure (LREC)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Lead-Based Paint Disclosure (pre-1978)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Flood disclosure",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Deposit Addendum + receipt",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Addendum to Agreement to Buy or Sell",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Amendment to Agreement to Buy or Sell",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Extension of Offer",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Extension of Agreement to Buy or Sell",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Due Diligence and Inspection Response (GBRAR)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Contingency Addendum (buyer's sale)",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Private sewerage addendum",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Water well addendum",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "WDIR addendum",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "As-is waiver addendum",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "FHA or VA amendatory clause",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Cancellation of Agreement to Buy or Sell",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Appraisal + response",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Loan application proof",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Repair receipts",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Walkthrough",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Closing Disclosure / settlement statement",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    },
+    {
+      "name": "Recorded Act of Sale",
+      "code": "",
+      "version_date": "",
+      "editable": true
+    }
+  ],
+  "form_chooser": {
+    "offer": "Residential Agreement to Buy or Sell (LREC)",
+    "counter": "Residential Counter Offer",
+    "change_after_acceptance": "Amendment to Agreement to Buy or Sell",
+    "add_a_term": "Addendum to Agreement to Buy or Sell",
+    "more_time_before_acceptance": "Extension of Offer",
+    "more_time_on_contract_date": "Extension of Agreement to Buy or Sell",
+    "inspection_reply": "Due Diligence and Inspection Response (GBRAR)",
+    "buyer_sale": "Contingency Addendum (buyer's sale)",
+    "cancel": "Cancellation of Agreement to Buy or Sell"
+  },
+  "deadline_types": [
+    "deposit",
+    "loan application",
+    "proof of application",
+    "lender intent to proceed",
+    "proof of funds",
+    "inspection / due diligence end",
+    "inspection response windows",
+    "WDIR",
+    "appraisal",
+    "financing / loan approval",
+    "sale-of-buyer's-home contingency",
+    "repairs complete + receipts",
+    "title exam / curative",
+    "insurance binder",
+    "final walkthrough",
+    "act of sale / closing",
+    "possession"
+  ],
+  "defaults": {
+    "reminder_lead_days": [
+      2,
+      1
+    ],
+    "inspection_response_hours": 72,
+    "repairs_working_days_before_act": 5
+  }
+}

@@ -1,0 +1,289 @@
+{
+ "note": "Signer field layouts per form. Page tokens: all, first, last, or a list of page numbers. A saved layout whose normalized name matches the form is preferred; two matches ask; none uses this one. All unverified until a live pass.",
+ "forms": {
+  "Residential Agreement to Buy or Sell (LREC)": {
+   "pages_hint": 3,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "Residential Counter Offer": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "Amendment to Agreement to Buy or Sell": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "Extension of Offer": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "Extension of Agreement to Buy or Sell": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "Agency Disclosure Informational Pamphlet (LREC)": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    }
+   }
+  },
+  "Property Disclosure Document + buyer receipt": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "buyers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last"
+     }
+    }
+   }
+  },
+  "Lead-Based Paint Disclosure (pre-1978)": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Initials": "last",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Initials": "last",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "Flood disclosure": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last"
+     }
+    },
+    "sellers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last"
+     }
+    },
+    "agents": {
+     "fields": {
+      "Date": "last",
+      "Name": "last"
+     },
+     "optional": true
+    }
+   }
+  },
+  "FHA or VA amendatory clause": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last"
+     }
+    }
+   }
+  },
+  "Due Diligence and Inspection Response (GBRAR)": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "buyers": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last"
+     }
+    }
+   }
+  },
+  "Listing agreement": {
+   "pages_hint": null,
+   "verified": false,
+   "roles": {
+    "sellers": {
+     "fields": {
+      "Initials": "all",
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    },
+    "listing_agent": {
+     "fields": {
+      "Sign Here": "last",
+      "Date": "last",
+      "Name": "last"
+     }
+    }
+   }
+  }
+ }
+}

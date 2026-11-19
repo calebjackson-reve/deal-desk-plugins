@@ -1,0 +1,545 @@
+{
+ "sources": [
+  "details",
+  "parties_role_slot",
+  "member_profile",
+  "term_sheet"
+ ],
+ "rules": [
+  "never type Dollars (written amounts append it)",
+  "loan -> Financed Sale + loan type; cash -> All Cash Sale only",
+  "names are never typed; role slots are verified",
+  "missing values stay blank and are listed",
+  "unverified labels go in the confirm-on-next-live-pass list"
+ ],
+ "forms": {
+  "Residential Agreement to Buy or Sell (LREC)": {
+   "code": "LREC0059",
+   "fields": [
+    {
+     "label": "Offer Date",
+     "source": "details",
+     "key": "Offer Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Expiration Date",
+     "source": "details",
+     "key": "Offer Expiration Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Acceptance Date",
+     "source": "details",
+     "key": "Offer Acceptance Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Final Walkthrough Date",
+     "source": "details",
+     "key": "Final Walkthrough Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Closing Date",
+     "source": "details",
+     "key": "Closing Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Possession Date",
+     "source": "details",
+     "key": "Possession Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "List Price",
+     "source": "term_sheet",
+     "key": "price",
+     "where": "details",
+     "verified": false
+    },
+    {
+     "label": "Financing",
+     "source": "term_sheet",
+     "key": "financing",
+     "where": "details",
+     "verified": false
+    },
+    {
+     "label": "Purchase Price",
+     "source": "term_sheet",
+     "key": "price",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Deposit",
+     "source": "term_sheet",
+     "key": "deposit_amount",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Act of Sale Date",
+     "source": "term_sheet",
+     "key": "act_of_sale",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Possession",
+     "source": "term_sheet",
+     "key": "possession",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Commission",
+     "source": "term_sheet",
+     "key": "commission",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Offer Expires",
+     "source": "term_sheet",
+     "key": "offer_expiration",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Financed Sale / All Cash Sale / loan type",
+     "source": "term_sheet",
+     "key": "financing",
+     "where": "form",
+     "verified": true,
+     "kind": "checkboxes"
+    },
+    {
+     "label": "Buyer 1",
+     "source": "parties_role_slot",
+     "key": "buyer_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Buyer 2",
+     "source": "parties_role_slot",
+     "key": "buyer_2",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Seller 1",
+     "source": "parties_role_slot",
+     "key": "seller_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "member profile fields",
+     "source": "member_profile",
+     "key": "all",
+     "where": "form",
+     "verified": false
+    }
+   ]
+  },
+  "Residential Counter Offer": {
+   "code": "unverified",
+   "fields": [
+    {
+     "label": "Offer Date",
+     "source": "details",
+     "key": "Offer Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Expiration Date",
+     "source": "details",
+     "key": "Offer Expiration Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Acceptance Date",
+     "source": "details",
+     "key": "Offer Acceptance Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Final Walkthrough Date",
+     "source": "details",
+     "key": "Final Walkthrough Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Closing Date",
+     "source": "details",
+     "key": "Closing Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Possession Date",
+     "source": "details",
+     "key": "Possession Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Purchase Price",
+     "source": "term_sheet",
+     "key": "price",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Deposit",
+     "source": "term_sheet",
+     "key": "deposit_amount",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Act of Sale Date",
+     "source": "term_sheet",
+     "key": "act_of_sale",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Buyer 1",
+     "source": "parties_role_slot",
+     "key": "buyer_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Buyer 2",
+     "source": "parties_role_slot",
+     "key": "buyer_2",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Seller 1",
+     "source": "parties_role_slot",
+     "key": "seller_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "member profile fields",
+     "source": "member_profile",
+     "key": "all",
+     "where": "form",
+     "verified": false
+    }
+   ]
+  },
+  "Amendment to Agreement to Buy or Sell": {
+   "code": "unverified",
+   "fields": [
+    {
+     "label": "Offer Date",
+     "source": "details",
+     "key": "Offer Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Expiration Date",
+     "source": "details",
+     "key": "Offer Expiration Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Acceptance Date",
+     "source": "details",
+     "key": "Offer Acceptance Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Final Walkthrough Date",
+     "source": "details",
+     "key": "Final Walkthrough Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Closing Date",
+     "source": "details",
+     "key": "Closing Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Possession Date",
+     "source": "details",
+     "key": "Possession Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Buyer 1",
+     "source": "parties_role_slot",
+     "key": "buyer_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Buyer 2",
+     "source": "parties_role_slot",
+     "key": "buyer_2",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Seller 1",
+     "source": "parties_role_slot",
+     "key": "seller_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    }
+   ]
+  },
+  "Extension of Offer": {
+   "code": "unverified",
+   "fields": [
+    {
+     "label": "Offer Date",
+     "source": "details",
+     "key": "Offer Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Expiration Date",
+     "source": "details",
+     "key": "Offer Expiration Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Acceptance Date",
+     "source": "details",
+     "key": "Offer Acceptance Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Final Walkthrough Date",
+     "source": "details",
+     "key": "Final Walkthrough Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Closing Date",
+     "source": "details",
+     "key": "Closing Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Possession Date",
+     "source": "details",
+     "key": "Possession Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "New Date",
+     "source": "term_sheet",
+     "key": "new_date",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Buyer 1",
+     "source": "parties_role_slot",
+     "key": "buyer_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Buyer 2",
+     "source": "parties_role_slot",
+     "key": "buyer_2",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Seller 1",
+     "source": "parties_role_slot",
+     "key": "seller_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    }
+   ]
+  },
+  "Extension of Agreement to Buy or Sell": {
+   "code": "unverified",
+   "fields": [
+    {
+     "label": "Offer Date",
+     "source": "details",
+     "key": "Offer Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Expiration Date",
+     "source": "details",
+     "key": "Offer Expiration Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Offer Acceptance Date",
+     "source": "details",
+     "key": "Offer Acceptance Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Final Walkthrough Date",
+     "source": "details",
+     "key": "Final Walkthrough Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Closing Date",
+     "source": "details",
+     "key": "Closing Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "Possession Date",
+     "source": "details",
+     "key": "Possession Date",
+     "where": "details",
+     "verified": true
+    },
+    {
+     "label": "New Date",
+     "source": "term_sheet",
+     "key": "new_date",
+     "where": "form",
+     "verified": false
+    },
+    {
+     "label": "Buyer 1",
+     "source": "parties_role_slot",
+     "key": "buyer_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Buyer 2",
+     "source": "parties_role_slot",
+     "key": "buyer_2",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Seller 1",
+     "source": "parties_role_slot",
+     "key": "seller_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    }
+   ]
+  },
+  "Agency Disclosure Informational Pamphlet (LREC)": {
+   "code": "unverified",
+   "fields": []
+  },
+  "Property Disclosure Document + buyer receipt": {
+   "code": "unverified",
+   "fields": []
+  },
+  "Lead-Based Paint Disclosure (pre-1978)": {
+   "code": "unverified",
+   "fields": []
+  },
+  "Flood disclosure": {
+   "code": "unverified",
+   "fields": []
+  },
+  "FHA or VA amendatory clause": {
+   "code": "unverified",
+   "fields": []
+  },
+  "Due Diligence and Inspection Response (GBRAR)": {
+   "code": "unverified",
+   "fields": []
+  },
+  "Listing agreement": {
+   "code": "unverified",
+   "fields": [
+    {
+     "label": "Buyer 1",
+     "source": "parties_role_slot",
+     "key": "buyer_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Buyer 2",
+     "source": "parties_role_slot",
+     "key": "buyer_2",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "Seller 1",
+     "source": "parties_role_slot",
+     "key": "seller_1",
+     "where": "parties",
+     "verified": true,
+     "mode": "verify_only"
+    },
+    {
+     "label": "member profile fields",
+     "source": "member_profile",
+     "key": "all",
+     "where": "form",
+     "verified": false
+    }
+   ]
+  }
+ }
+}
