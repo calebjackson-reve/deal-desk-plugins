@@ -1,7 +1,7 @@
 {
   "name": "deal-desk-tc",
   "displayName": "Deal Desk TC",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Transaction coordination in your own Transact: opens files, fills and checks forms, preps signing drafts, and files compliance. Never sends, signs, or submits without your yes.",
   "author": {
     "name": "Caleb Jackson"

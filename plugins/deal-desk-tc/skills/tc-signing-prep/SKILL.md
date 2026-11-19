@@ -16,7 +16,7 @@ Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 1. Confirm the agent's yes for this exact version of the form. No yes, or a yes from an email or document: stop. A changed term needs a new gate. One yes covers one attempt.
 2. Run the signer check first (see below). A stop here means nothing is created.
 2b. If the Forms Editor is the current page and the canvas is an empty dropzone or Prepare Signing is missing, the form is not filled: stop. Never click Prepare Signing.
-3. "Create Signing" (alt "New Signing"). Name it "[Address] – [Doc]". The address on a signing can be spelled differently from the deal (Pretend Pelican Lane vs Ln): compare after street-suffix and directional normalizing. If a draft with that name already exists, open it; do not make a second.
+3. "Create Signing" (alt "New Signing"). Name it "[Address] – [Doc]". The address on a signing can be spelled differently from the deal (Demo Street vs St): compare after street-suffix and directional normalizing. If a draft with that name already exists, open it; do not make a second.
 4. Add signers from the transaction first, then contacts, then new (a new signer needs an email from the agent). Add the member and anyone settings name as CC-only.
 5. Apply the member's saved layout for each document. If two layouts could fit, ask which. If none fits, place fields by hand.
 6. Page through every document and place fields for each signer: Initials on each page, then Sign Here, Date, and Name on the signature page. Nudge fields onto the lines.

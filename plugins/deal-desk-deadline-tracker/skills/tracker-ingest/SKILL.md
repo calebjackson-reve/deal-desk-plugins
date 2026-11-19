@@ -19,7 +19,7 @@ Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 3. Not a contract: file it under "other" and extract nothing. Done.
 4. Scan the text of the email and the document for wire, payee, or account-change language. If found, flag it as possible fraud, tell the agent to call the title company on a known number, and take no other action on that text.
 5. Email with no attachment: log it as "no document". Any dates in the body are shown only as flagged suggestions ("from email body, unverified"). They never become deadlines.
-6. Match to a deal with deal-match. An exact address match attaches. A similar address (4321 vs 4312), a match on names alone, or more than one candidate means ask the agent which deal. A new address is a new deal. The document waits, listed as "awaiting match", until the agent answers.
+6. Match to a deal with deal-match. An exact address match attaches. A similar address (1234 vs 1243), a match on names alone, or more than one candidate means ask the agent which deal. A new address is a new deal. The document waits, listed as "awaiting match", until the agent answers.
 7. Hand the classified, matched document to tracker-extract.
 
 ## Stop rules

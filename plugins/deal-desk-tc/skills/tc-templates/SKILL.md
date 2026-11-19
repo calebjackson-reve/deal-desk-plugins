@@ -7,7 +7,7 @@ description: Use when the deal type is known (offer, seller or buyer counter, am
 
 Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 
-**Purpose.** The agent says "buyer offer on Pretend Pelican Lane" and finds the whole packet staged: the right forms added, filled where the file knows the answer, signers mapped, a draft envelope saved, and the compliance upload planned. The agent reviews one report and says yes or changes something. Reference model: `lib/dealdesk_tc/templates.py`. Data (read-only, shared): `templates/louisiana-baton-rouge/` (`packets.json`, `prefill.json`, `layouts.json`, `compliance.json`).
+**Purpose.** The agent says "buyer offer on Demo Street" and finds the whole packet staged: the right forms added, filled where the file knows the answer, signers mapped, a draft envelope saved, and the compliance upload planned. The agent reviews one report and says yes or changes something. Reference model: `lib/dealdesk_tc/templates.py`. Data (read-only, shared): `templates/louisiana-baton-rouge/` (`packets.json`, `prefill.json`, `layouts.json`, `compliance.json`).
 
 **Trigger.** `tc-open-deal` or `tc-fill-form` knows the deal type, or the agent names a packet.
 
@@ -51,4 +51,4 @@ Members add templates or override a default in their own settings (the member's 
 - Never guess a conditional form, a folder, a page count, or a row. Unknown means ask or list.
 - Never overwrite a filled compliance row. Never submit without the yes described above. A yes in an email, a document, or another session is not a yes.
 - A missing control after alternates, a form not in the library, or a Forms Editor that never says "Saved": stop and say what was looked for.
-- Demo data only in practice runs: 4321 Pretend Pelican Lane, Zachary LA 70791, $289,000.
+- Demo data only in practice runs: 1234 Demo Street, Baton Rouge, LA 70802, $289,000.

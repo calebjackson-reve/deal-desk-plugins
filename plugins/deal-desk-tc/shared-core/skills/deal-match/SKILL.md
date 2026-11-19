@@ -13,10 +13,10 @@ Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 
 ## Steps
 
-1. Normalize addresses: unit, USPS street suffix (Ln/Lane, St/Street, Dr/Drive, Ave/Avenue, Rd/Road, Blvd/Boulevard, Ct/Court, Cir/Circle, Pl/Place, Pkwy/Parkway, Hwy/Highway, Trl/Trail, Way, Ter/Terrace, and so on; case and periods ignored) and directional (N/North). "Pretend Pelican Lane" and "Pretend Pelican Ln" are the same street. A different house number or a different street name is a different file.
+1. Normalize addresses: unit, USPS street suffix (Ln/Lane, St/Street, Dr/Drive, Ave/Avenue, Rd/Road, Blvd/Boulevard, Ct/Court, Cir/Circle, Pl/Place, Pkwy/Parkway, Hwy/Highway, Trl/Trail, Way, Ter/Terrace, and so on; case and periods ignored) and directional (N/North). "Demo Street" and "Demo St" are the same street. A different house number or a different street name is a different file.
 2. Score by address, parties, MLS number, and Transact ID.
 3. Above the threshold, propose the match. Below it, propose "new deal".
 
 ## Stop rules
 
-- Two deals with similar addresses (for example 4321 vs 4312 Pretend Pelican Lane), or a match on a party alone: ask the agent and never auto-attach.
+- Two deals with similar addresses (for example 1234 vs 1243 Demo Street), or a match on a party alone: ask the agent and never auto-attach.

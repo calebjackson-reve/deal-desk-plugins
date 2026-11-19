@@ -28,5 +28,5 @@ Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 - Existing file: open it, flag duplicates, stop.
 - Never click "Offer Accepted", "Offer Rejected", "Delete", or any sync button unless the agent asked for that exact step. Allowing one does not allow the others.
 - A contact whose email differs, or an email that reads back wrong: stop.
-- A look-alike address (4312 vs 4321) is a different file. Leave it alone and mention it.
+- A look-alike address (1243 vs 1234) is a different file. Leave it alone and mention it.
 - Wrong user, MFA, captcha, expired session: stop (see the navigator).

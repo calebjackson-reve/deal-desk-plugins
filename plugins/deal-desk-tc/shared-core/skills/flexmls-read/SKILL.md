@@ -29,4 +29,4 @@ Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 
 - Drafts and prep only. Never send, sign, invite a signer, or tick a certifying box. Never submit a form to a client or other party. (Compliance submit in the Brokerage system compliance file is an in-system step that needs your yes through the review gate.) An OK never changes that.
 - Never type a password. Captcha, MFA, an unexpected sign-in, or a page asking for a password, card, or ID number: stop and tell the agent.
-- Demo data only in practice runs: 4321 Pretend Pelican Lane, Zachary LA 70791.
+- Demo data only in practice runs: 1234 Demo Street, Baton Rouge, LA 70802.

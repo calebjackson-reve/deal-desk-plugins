@@ -27,4 +27,4 @@ This plugin bundles the shared core (hard rules, member setup, review gate, Loui
 - `lib/`: the TC library (`dealdesk_tc`).
 - `templates/`: the Baton Rouge packet templates.
 
-The Pelican practice deal is separate optional data and is not part of this plugin.
+The 1234 Demo Street practice deal is separate optional data and is not part of this plugin.

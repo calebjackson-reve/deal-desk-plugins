@@ -1,5 +1,10 @@
 # Deal Desk Deadline Tracker changelog
 
+## 0.1.1 (Nov 19 2026, pending review)
+
+- Practice pack and onboarding pass moved to 1234 Demo Street. Answer key is `practice/DEMO-DATES.md`. The amended Act of Sale date is isolated in `practice/amendment_dates.json`.
+- Address short names for the practice deal now read "1234 Demo".
+
 ## 0.1.0
 
 - Eight skills: ingest, extract, deadline table, calendar, amendment diff, files, digest, and the Pelican onboarding pass.

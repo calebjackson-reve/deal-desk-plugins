@@ -1,7 +1,7 @@
 {
   "name": "deal-desk-deadline-tracker",
   "displayName": "Deal Desk Deadline Tracker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reads contract papers, builds a deadline table with sources, proposes calendar events, and shows amendment changes before any date moves. Never sends, signs, or invites; every write waits for your yes.",
   "author": {
     "name": "Caleb Jackson"

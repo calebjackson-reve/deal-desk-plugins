@@ -14,7 +14,7 @@ SUFFIXES = {"lane", "ln", "street", "st", "road", "rd", "drive", "dr", "avenue",
 
 
 def address_short(address):
-    """'4321 Pretend Pelican Lane, Zachary LA 70791' -> '4321 Pelican'."""
+    """'1234 Demo Street, Baton Rouge, LA 70802' -> '1234 Demo'."""
     first = (address or "").split(",")[0].split()
     if not first:
         return "unknown"

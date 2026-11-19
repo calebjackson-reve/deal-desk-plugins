@@ -17,7 +17,7 @@ DEFAULT_SETTINGS = {
     "profile": {"agent_name": "Taylor Member", "agent_license": "DEMO-LIC-0001",
                 "brokerage_license": "DEMO-BRK-0001", "agent_phone": "225-555-0110",
                 "agent_email": "taylor.member@example.com", "brokerage_phone": "225-555-0111",
-                "brokerage_email": "office@example.com", "sellers_agent": "Casey Example",
+                "brokerage_email": "office@example.com", "sellers_agent": "Realtor A",
                 "designated_agent_name": "Taylor Member", "designated_agent_license": "DEMO-LIC-0001",
                 "designated_agent_phone": "225-555-0110",
                 "designated_agent_email": "taylor.member@example.com"},
@@ -233,13 +233,15 @@ class Session:
             return dict(b, source=src.get("source"))
         if name == "tpl_compliance_upload":
             b = a.get("batch") or self.last_batch
+            addr = a.get("address") or (self.facts or {}).get("address")
             out = templates.upload_batch(c, self.gate, self.settings, b,
-                                         a.get("address", "4321 Pretend Pelican Lane"),
+                                         addr,
                                          (lambda: a["now"]) if a.get("now") else None)
             self._track(out)
             return out
         if name == "tpl_submit":
-            r = templates.submit_gate(self.gate, a["stage"], a.get("address", "4321 Pretend Pelican Lane"),
+            addr = a.get("address") or (self.facts or {}).get("address")
+            r = templates.submit_gate(self.gate, a["stage"], addr,
                                       c.uploads)
             if r.get("proposal"):
                 self.last_hash = r["proposal"]["hash"]

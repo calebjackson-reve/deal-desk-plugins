@@ -1,5 +1,11 @@
 # Changelog: Deal Desk TC
 
+## 0.2.3 (Nov 19 2026, pending review)
+
+Changed
+- Practice pack is now 1234 Demo Street, Baton Rouge, LA 70802 (Buyer A / Seller A). The Pelican practice deal is retired. Emails stay on example.com; phones stay 225-555-01xx.
+- The amended Act of Sale date lives only in `practice/amendment_dates.json` (confirmed 2026-11-19 12:10 PM CT: moves closing from Fri 2027-01-15 to Fri 2027-01-29). Inspection end and repairs do not move with that amendment.
+
 ## 0.2.2 (Nov 19 2026, pending review)
 
 Changed (Caleb approved Nov 19 2026)
@@ -16,7 +22,7 @@ Changed (Caleb's decision, Nov 16 2026: compliance uploads are automatic, no yes
 - `compliance_upload` is no longer a gate step. The optional Brokerage system fallback upload stays gated as `compliance_upload_brokerage_system` (member setting, off by default). update-row, sync and file placement stay gated.
 - Auto-run report gains `compliance_upload` (log, skips, report lines) and `compliance_submit` (gate proposal, nothing submitted). The compliance plan no longer carries an upload proposal.
 - FakeTransact gains `open_file` / `set_open_file`; `upload_to_row` refuses anything outside the Compliance tab or without an open file. open_deal records the open file.
-- Scenarios: TP63-TP67 rewritten, K12/K17/K18/L30 reworded for the fallback, PELICAN-TEMPLATE-BUYER-OFFER now uploads the executed docs; new TP81-TP90.
+- Scenarios: TP63-TP67 rewritten, K12/K17/K18/L30 reworded for the fallback, DEMO-TEMPLATE-BUYER-OFFER now uploads the executed docs; new TP81-TP90.
 - Requires Shared core 0.1.1 or later (tested with 0.1.x).
 
 ## 0.2.0 (Nov 16 2026, pending review)
@@ -29,7 +35,7 @@ New
 - Member templates in the member's own settings: validated (no send, sign, invite, Prepare Signing, Next, or submit step), isolated per member, defaults read-only.
 - Auto-run from the deal type, stopping at the review gate with one report.
 - signing_prep.prep takes an optional template plan (original flow unchanged). FakeTransact gains set_signing_order, apply_layout, upload_to_row (refuses a non-empty row). Practice Signing Builder fixture gains a "Map Signers" label.
-- 81 new scenarios (TP01-TP80 and PELICAN-TEMPLATE-BUYER-OFFER, tools/gen_templates_scenarios.py).
+- 81 new scenarios (TP01-TP80 and DEMO-TEMPLATE-BUYER-OFFER, tools/gen_templates_scenarios.py).
 
 Action needed
 - (Superseded by 0.2.1: Caleb decided uploads are automatic with no yes.)
@@ -40,7 +46,7 @@ Action needed
 - Nine skills: tc-transact-navigator, tc-open-deal, tc-fill-form, tc-signing-prep, tc-contract-to-close, tc-compliance-file, tc-client-update, tc-buyer-offer-packet, tc-onboarding-pass.
 - Reference lib `dealdesk_tc` (stdlib only, no network) with a fake Transact client that records every action and raises on send, sign, or Next.
 - Recorded page fixtures (account chooser, file search, details, parties, Forms Editor, signings, signing builder) and Pelican demo data.
-- 125 scenarios, including three Pelican passes, signer-email collision stops, and gate rules.
+- 125 scenarios, including three Demo Street practice passes, signer-email collision stops, and gate rules.
 - Requires Shared core 0.1.0 or later (tested with 0.1.x).
 - DD01h: live Transact findings folded in (tabs, Compliance tab first, Search placeholder, folders read from page, icon controls by aria-label/tooltip, form-not-filled stop, Timeline vs Details flag, suffix-insensitive address compare, exact Details labels). Scenarios L01-L30 (gen_live_findings_scenarios.py). Compliance is built in Transact's Compliance tab (primary); the Brokerage system path is an optional fallback behind a member setting, off by default, never used just because the tab is empty.
 - Nothing in this package sends, signs, invites a signer, or ticks a certifying box.

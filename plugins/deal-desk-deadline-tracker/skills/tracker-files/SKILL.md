@@ -14,7 +14,7 @@ Hard rules apply. Read `shared-core/skills/HARD-RULES.md` first.
 ## Steps
 
 1. Folders per deal: Contract/, Addenda-Amendments/, Inspection/, Appraisal-Lending/, Title/, Other/. Practice deals go under Practice/ first.
-2. Name the file YYYY-MM-DD_[doc type]_[address short].pdf, for example 2026-10-02_amendment_4321-Pelican.pdf.
+2. Name the file YYYY-MM-DD_[doc type]_[address short].pdf, for example 2026-10-02_amendment_1234-Demo.pdf.
 3. Place the copy in the matching folder. If the name already exists, save a numbered copy (-2, -3). Never overwrite.
 4. Tell the agent where it went, in one line.
 

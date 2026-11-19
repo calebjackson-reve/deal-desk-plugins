@@ -28,4 +28,4 @@ This plugin bundles the shared core (hard rules, member setup, review gate, Loui
 
 ## Good to know
 
-Check every date against your contract. The Tracker helps; you decide. The Pelican practice deal is separate optional data and is not part of this plugin.
+Check every date against your contract. The Tracker helps; you decide. The 1234 Demo Street practice deal is separate optional data and is not part of this plugin.
